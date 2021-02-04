@@ -6,4 +6,4 @@ This one just simple script
 How to install:
 1. Rename to OutOfBreath
 2. ensure OutOfBreath on your server.cfg
-Have fun!
+3. Have fun!
