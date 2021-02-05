@@ -14,11 +14,12 @@ Citizen.CreateThread(function()
 					while not HasAnimDictLoaded("re@construction") do
 					Citizen.Wait(100)
 					end			
-					DisableControlAction(0, 73, true) -- X
+					DisableControlAction(0, 73, true) -- Disable X - I have to disable cancel animation
 				
 					TaskPlayAnim(PlayerPedId(), "re@construction", "out_of_breath", 8.0, 8.0,5000, 32, 0, false, false, false)
 					Citizen.Wait(5000)
-					DisableControlAction(0, 73, false) -- X
+					DisableControlAction(0, 73, false) -- Disable X - I have to disable cancel animation
+					RemoveAnimDict("re@construction")
 				end
 			end
 		end
