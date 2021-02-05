@@ -8,7 +8,6 @@ Citizen.CreateThread(function()
 		if isSprinting then
 			letSleep = false
 			if stamina == 100 then
-			local playerPed = PlayerPedId()
 				if not isSwimming and not isUnderwater then
 					RequestAnimDict("re@construction")
 					while not HasAnimDictLoaded("re@construction") do
