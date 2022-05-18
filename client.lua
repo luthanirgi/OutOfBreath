@@ -2,25 +2,21 @@ local isSprinting, isSwimming, isUnderwater = false, false, false
 
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(100) -- check every 100 ticks, performance matters
-		local letSleep = true
-		local stamina = GetPlayerSprintStaminaRemaining(PlayerId())
-		if isSprinting then
-			letSleep = false
-			if stamina == 100 then
-				if not isSwimming and not isUnderwater then
-					RequestAnimDict("re@construction")
-					while not HasAnimDictLoaded("re@construction") do
-					Citizen.Wait(100)
-					end			
-					TaskPlayAnim(PlayerPedId(), "re@construction", "out_of_breath", 8.0, 8.0,-1, 32, 0, false, false, false)
-				end
+	local sleep = 1500
+	local stamina = GetPlayerSprintStaminaRemaining(PlayerId())
+	if isSprinting then
+		sleep = 5
+		if stamina == 100 then
+			if not isSwimming and not isUnderwater then
+				RequestAnimDict("re@construction")
+				while not HasAnimDictLoaded("re@construction") do
+				Citizen.Wait(100)
+				end			
+				TaskPlayAnim(PlayerPedId(), "re@construction", "out_of_breath", 8.0, 8.0,-1, 32, 0, false, false, false)
 			end
 		end
-		if letSleep then
-		Citizen.Wait(500)
-		end
 	end
+	Citizen.Wait(sleep)
 end)
 
 Citizen.CreateThread(function()
