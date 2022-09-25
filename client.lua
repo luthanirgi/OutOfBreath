@@ -17,6 +17,7 @@ Citizen.CreateThread(function()
 		end
 	end
 	Citizen.Wait(sleep)
+	end
 end)
 
 Citizen.CreateThread(function()
